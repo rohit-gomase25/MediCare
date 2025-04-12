@@ -1,7 +1,11 @@
 {
     "build": {
       "builder": "NIXPACKS",
-      "buildCommand": "npm install"
+      "nixpacksPlan": {
+        "providers": ["node"]
+      },
+      "buildCommand": "cd backend && npm install",
+      "startCommand": "cd backend && npm start"
     }
   }
   
