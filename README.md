@@ -1,154 +1,187 @@
-# 👨‍⚕️ Medical Appointment Booking System
+# MediCare - Complete Healthcare Management System
 
-A full-stack medical appointment booking system built with **MERN** stack (MongoDB, Express.js, React, Node.js) and integrated with Cloudinary for image uploads and Stripe for payments.
+MediCare is a full-stack healthcare management system that provides:
+- Patient portal for booking appointments
+- Doctor portal for managing schedules
+- Admin dashboard for system management
 
-## 📸 User Side Demo
+## Features
 
-#### Landing Page
-![Medical Landing Page](./project_images/UserSide_Demo/Landing_page.png) 
+### Patient Features
+- Browse and search doctors by specialty
+- Book appointments with doctors
+- View appointment history
+- Manage profile information
+- Secure payment integration (Razorpay)
+- Chatbot assistance
 
-### Doc Availability
-![Doc Availability Page](./project_images/UserSide_Demo/Doc_appointments_page.png) 
+### Doctor Features
+- Manage appointment schedule
+- View patient details
+- Update profile information
+- Track appointments
 
-### Doc Booking & related doctor recommendation
-![Doc Booking & related doctor recommendation Page](./project_images/UserSide_Demo/Doc_availability.png) 
+### Admin Features
+- Add/remove doctors
+- View all appointments
+- Manage system users
+- Dashboard analytics
 
-### User appointment checking & payment method
-![User appointment checking Page](./project_images/UserSide_Demo/User_appointment_checking.png) 
+## Technology Stack
 
-### Stripe Payment
-![Stripe Payment Page](./project_images/UserSide_Demo/Stripe_payment.png) 
+### Frontend
+- React.js with Vite
+- Tailwind CSS for styling
+- React Router for navigation
+- Context API for state management
+- Axios for API calls
 
-## 📸 Admin/Doc Side Demo
+### Backend
+- Node.js with Express
+- MongoDB with Mongoose
+- JWT for authentication
+- Cloudinary for image storage
+- Multer for file uploads
 
-### Admin/Doc Profile
-![Stripe Payment Page](./project_images/Doc/AdminSide_Demo/Admin:Doc_Profile.png) 
+### Admin Panel
+- React.js with Vite
+- Tailwind CSS
+- Custom admin components
 
-### Admin/Doc Dashboard
-![Stripe Payment Page](./project_images/Doc/AdminSide_Demo/Admin:Doc_Dashboard.png) 
+## Project Structure
 
-### Admin/Doc Appointment_listing.png
-![Stripe Payment Page](./project_images/Doc/AdminSide_Demo/Appointment_listing.png) 
-
-## ✨ Features
-
-* 👨‍⚕️ Doctor Management: Admin can add, update, and manage doctors.
-
-*  📅 Appointment Booking: Users can book and manage doctor appointments.
-
-* 🔑 Authentication & Authorization: JWT-based user authentication (Patients, Doctors, Admins).
-
-* 💳 Payment Integration: Secure payment processing with Stripe.
-
-* ☁️ Image Upload: Profile picture uploads using Cloudinary.
-
-* 📊 Dashboards: Dedicated dashboards for Admins, Doctors, and Users.
-
-## 📂 Folder Structure
-```bash
-📦 project-root
-├── 📁 backend         # Server-side code
-│   ├── 📁 config      # Database & Cloudinary config
-│   ├── 📁 controllers # Business logic
-│   ├── 📁 middlewares # Auth middleware across user role
-│   ├── 📁 models      # Database schemas
-│   ├── 📁 routes      # API endpoints
-│   ├── server.js      # Main Express server
-│
-├── 📁 frontend        # Client-side code
-│   ├── 📁 src         # React components & pages
-│       ├── 📁 assets      # Static files
-│       ├── 📁 components  # Reusable components
-│       ├── 📁 contexts    # CreateContext hook
-│       ├── 📁 pages       # Unique Pages
-│
-└── 📄 README.md       # Project documentation
+```
+MediCare/
+├── admin/                # Admin dashboard
+│   ├── public/           # Static assets
+│   ├── src/              # React source code
+│   │   ├── assets/       # Admin assets
+│   │   ├── components/   # Reusable components
+│   │   ├── context/      # Context providers
+│   │   ├── pages/        # Page components
+│   │   └── ...           # Other config files
+├── backend/              # Node.js server
+│   ├── config/           # Configuration files
+│   ├── controllers/      # Route controllers
+│   ├── middlewares/      # Custom middlewares
+│   ├── models/           # MongoDB models
+│   ├── routes/           # API routes
+│   └── server.js         # Main server file
+├── frontend/             # Patient portal
+│   ├── public/           # Static assets
+│   ├── src/              # React source code
+│   │   ├── assets/       # Frontend assets
+│   │   ├── components/   # Reusable components
+│   │   ├── contexts/     # Context providers
+│   │   ├── pages/        # Page components
+│   │   ├── utils/        # Utility functions
+│   │   └── ...           # Other config files
+└── README.md             # Project documentation
 ```
 
-## 🛠️ Tech Stack
+## Installation
 
-Frontend
+### Prerequisites
+- Node.js (v16+ recommended)
+- MongoDB
+- Cloudinary account (for image storage)
+- Git
 
-* React.js
+### Setup Instructions
 
-* React Router
-
-* TailwindCSS
-
-* Axios
-
-Backend
-
-* Node.js
-
-* Express.js
-
-* MongoDB (Mongoose)
-
-* Cloudinary
-
-* RazorPay 
-
-## 🚀 Installation & Setup
-
-### 1️⃣ Clone the Repository
+1. Clone the repository:
 ```bash
-git clone https://github.com/NikkiAung/Doctor-Appointment-Booking-System.git
-cd medical-booking-system
+git clone "https://github.com/rohit-gomase25/MediCare.git"
+cd MediCare
 ```
 
-### 2️⃣ Install Dependencies
-
-Backend Setup
+2. Install dependencies for all parts:
 ```bash
+# Backend
 cd backend
 npm install
-```
 
-Frontend Setup
-```bash
-cd frontend
+# Frontend
+cd ../frontend
+npm install
+
+# Admin
+cd ../admin
 npm install
 ```
 
-### 3️⃣ Set Up Environment Variables
-Create a .env file in the backend directory and add:
-```bash
+3. Configure environment variables:
+Create `.env` files in each directory with required configurations.
+
+**Backend .env example:**
+```
+
 PORT=4000
-MONGODB_URI=your_mongo_db_connection
+MONGODB_URI=your_mongodb_connection_stringw=majority&appName=Cluster0
 CLOUDINARY_NAME=your_cloudinary_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_KEY=your_cloudinary_key
 CLOUDINARY_SECRET_KEY=your_cloudinary_secret
-JWT_SECRET=your_jwt_secret
 ADMIN_EMAIL=your_admin_email
 ADMIN_PASSWORD=your_admin_password
-RAZORPAY_KEY_ID=your_razorpay_keyId
-RAZORPAY_KEY_SECRET=your_razorpay_secretKey
+JWT_SECRET=your_jwt_secret_key
+RAZORPAY_KEY_ID=your_razorpay_keyID
+RAZORPAY_KEY_SECRET=your_razorpay_keySECRET
 CURRENCY=INR
 CLIENT_SITE_URL=http://localhost:5173
 ```
 
-### 4️⃣ Start the Server
+4. Start the development servers:
 ```bash
+# In separate terminals:
+
+# Backend
 cd backend
 npm run dev
-```
 
-### 5️⃣ Start the Frontend
-```bash
-cd frontend
+# Frontend
+cd ../frontend
+npm run dev
+
+# Admin
+cd ../admin
 npm run dev
 ```
-## 🔥 API Endpoints
 
-| Route                        | Method | Description             |
-|------------------------------|--------|-------------------------|
-| `/api/user/register`         | POST   | Register a new user     |
-| `/api/user/login`            | POST   | Login user              |
-| `/api/user/book-appointment` | POST   | Book an appointment     |
-| `/api/admin/add-doctor`      | POST   | Admin adds a new doctor |
-| `/api/doctor/login`          | POST   | Doctor login            |
-| `/api/doctor/appointments`   | GET    | Doctor's appointments   |
+## Available Scripts
+
+### Backend
+- `npm run dev`: Start development server with nodemon
+- `npm start`: Start production server
+
+### Frontend/Admin
+- `npm run dev`: Start Vite development server
+
+## Chatbot Feature
+
+The MediCare application includes a chatbot feature designed to assist users with common queries and provide support. The chatbot can help with:
+
+- Booking appointments
+- Providing information about doctors and specialties
+- Answering frequently asked questions
+
+### How to Use the Chatbot
+
+- The chatbot icon is located at the bottom right corner of the application interface
+- Click on the icon to open the chat window
+- Select from the suggested options to get instant responses
+
+The chatbot is designed to enhance user experience by providing quick and efficient assistance.
+
+## API Documentation
+
+The backend provides RESTful APIs for:
+- User authentication
+- Doctor management
+- Appointment booking
+- Profile management
+
+
+
 
 
 
